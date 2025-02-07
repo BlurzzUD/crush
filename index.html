@@ -10,28 +10,28 @@
     <p>aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS92LmkucC5fYW1paTE3</p>
     <p>aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9hbWFuZGFldmFfYW50YWwv</p>
     <p>Этого ниггера взломали, ммао</p>
-    <img src="474767144_17897647317128989_3678838697821255936_n.jpg" alt="Взломанный лмао">
+    <img id="music-control" src="474767144_17897647317128989_3678838697821255936_n.jpg" alt="Взломанный лмао" style="cursor: pointer;">
 
     <!-- Background Music -->
-    <audio controls autoplay loop>
+    <audio id="background-music">
         <source src="utomp3.com - Halsey  Bad At Love.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <script>
-        // Optional: Add a play button to allow user interaction
-        document.addEventListener('DOMContentLoaded', function() {
-            const audio = document.querySelector('audio');
-            audio.play().catch(() => {
-                // Autoplay was prevented, show a play button or message
-                const playButton = document.createElement('button');
-                playButton.textContent = 'Play Music';
-                document.body.appendChild(playButton);
-                playButton.addEventListener('click', () => {
-                    audio.play();
-                    playButton.remove();
-                });
-            });
+        // Get references to the image and audio elements
+        const musicControl = document.getElementById('music-control');
+        const backgroundMusic = document.getElementById('background-music');
+
+        // Add a click event listener to the image
+        musicControl.addEventListener('click', function () {
+            if (backgroundMusic.paused) {
+                // If the audio is paused, play it
+                backgroundMusic.play();
+            } else {
+                // If the audio is playing, pause it
+                backgroundMusic.pause();
+            }
         });
     </script>
 </body>
